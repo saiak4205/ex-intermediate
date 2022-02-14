@@ -18,6 +18,9 @@ public class TeamController {
 	@Autowired
 	private TeamService service;
 	
+	/**
+     * 球団を全件取得し、htmlに出力
+     */
 	@RequestMapping("/showList")
 	public String showList(Model model) {
 		List<Team>teamList = service.showList();
@@ -25,6 +28,9 @@ public class TeamController {
 		return "team.html";
 	}
 	
+	/**
+     * 選択された球団情報を取得し、htmlに出力
+     */
 	@RequestMapping("/showDetail")
 	public String showDetail(String teamName,Model model) {
 		model.addAttribute("team",service.showDetail(teamName));

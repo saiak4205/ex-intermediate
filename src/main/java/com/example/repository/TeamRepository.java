@@ -22,6 +22,12 @@ public class TeamRepository {
 	
 	private static final RowMapper<Team>TEAM_ROW_MAPPER = new BeanPropertyRowMapper<>(Team.class);
 	
+	
+	/**
+     * 球団名から球団の情報を取得する。
+     * @param teamName 球団名
+     * @return team　球団情報
+     */
 	public Team load(String teamName) {
 		String sql = "SELECT * FROM teams WHERE team_name = :teamName;";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("teamName",teamName);
@@ -29,6 +35,10 @@ public class TeamRepository {
 		return team;
 	}
 	
+	/**
+     * 球団を全件取得
+     * @return team　球団リスト
+     */
 	public List<Team> findAll(){
 		String sql = "SELECT * FROM teams ORDER BY inauguration ASC;";
 		List<Team>teamList = template.query(sql,TEAM_ROW_MAPPER);

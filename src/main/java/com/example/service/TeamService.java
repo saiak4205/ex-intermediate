@@ -17,10 +17,18 @@ public class TeamService {
 	@Autowired
 	private TeamRepository repository;
 	
+	/**
+     * 球団名から球団の情報を取得する。
+     * @return team　球団情報
+     */
 	public List<Team>showList(){
 		return repository.findAll();
 	}
 	
+	/**
+     * 球団を全件取得
+     * @return teamList　球団リスト
+     */
 	public Team showDetail(String teamName) {
 		return repository.load(teamName);
 	}
