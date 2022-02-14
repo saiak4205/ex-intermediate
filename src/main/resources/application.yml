@@ -4,3 +4,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/student
     username: saito
     password: akio4205
+server:
+  servlet:
+    context-path: /ex-intermediate
